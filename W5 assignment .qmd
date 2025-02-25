@@ -38,7 +38,7 @@ str() tells us the type of function it is, ie character, number, etc.
 knitr::kable(result1, digits=2, caption="Table 1: Anscombe Quartet Descriptive Statistics") 
 ```
 
-The summary statistics tell us that the mean of x and y are the same for all of the datasets. They also have the same correlation between x and y of 0.816, meaning that x and y are highly correlated. This tells us that the range is pretty similar for the first three datasets, but the fourth one has a higher range. the fourth one has a very high y.
+The summary statistics tell us that the mean of x and y are the same for all of the datasets. They also have the same strong correlation between x and y of r= 0.816. The summary table also tells us the range, which is calculated by subtracting the maximum values from the minimum values. The range for the y axis is similar for all four datasets, and the range for the x axis is similar for the first three datasets, while being much larger for dataset 4. This could indicate the presence of a potenital outlier, due to the similarities in the other summary statistics other than the x-maximum value.
 
 Next, I plotted the datasets.
 
