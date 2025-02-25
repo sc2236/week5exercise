@@ -15,7 +15,7 @@ First, I opened up the dataset and explored the dataset.
 
 ```{r}
 #| results: hide 
-anscombe_quartet= readRDS("/Users/chenshin/Desktop/Longitudinal_Data_Analysis_Practical/week_5/week5/anscombe quartet.rds")
+anscombe_quartet= readRDS("anscombe_quartet.rds")
 
 str(anscombe_quartet) 
 
@@ -58,7 +58,7 @@ Taken together, although the summary statistics seemed to indicate that the four
 ## [**Problem 2: Datasaurus Dataset:**]{.underline}
 
 ```{r}
-datasaurus_dozen = readRDS("/Users/chenshin/Desktop/Longitudinal_Data_Analysis_Practical/week_5/week5/datasaurus_dozen.rds") 
+datasaurus_dozen <- readRDS("datasaurus_dozen.rds")
 ```
 
 First, I explored the different datasets in Datasaurus, and explored summary and descriptive statistics.
