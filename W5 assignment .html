@@ -198,7 +198,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>The summary statistics tell us that the mean of x and y are the same for all of the datasets. They also have the same correlation between x and y of 0.816, meaning that x and y are highly correlated. This tells us that the range is pretty similar for the first three datasets, but the fourth one has a higher range. the fourth one has a very high y.</p>
+<p>The summary statistics tell us that the mean of x and y are the same for all of the datasets. They also have the same strong correlation between x and y of r= 0.816. The summary table also tells us the range, which is calculated by subtracting the maximum values from the minimum values. The range for the y axis is similar for all four datasets, and the range for the x axis is similar for the first three datasets, while being much larger for dataset 4. This could indicate the presence of a potenital outlier, due to the similarities in the other summary statistics other than the x-maximum value.</p>
 <p>Next, I plotted the datasets.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>(anscombe_quartet, <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y)) <span class="sc">+</span></span>
@@ -213,9 +213,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The plots tell us that the four datasets are very different from each other, which was obscured by the summary statistics. The first dataset is pretty scattered although there does seem to be a trend upwards and following a slight linear pattern. Dataset two shows a more quadratic relationship. Dataset 3 generally follows a linear trend but this is skewed by a clear outlier. Finally, dataset four is a straight line of the datapoints, and there is one outlier. The true patterns could only be seen with plotting the datasets.</p>
-<p>Linear regression would not be an appropriate statistical model to analyze the x-y relationship, because there is not a linear pattern for each one. It would only be appropriate for dataset 3.</p>
-<p>The four datasets are extremely different. Trying to fit them into a linear model would not be appropriate, and running a correlation (all the same 0.81) does not show the proper relationships between x and y variables.</p>
+<p>The plots tell us that the four datasets are very different from each other, which was obscured by the summary statistics. The first dataset is pretty scattered, although it does seem to be following a slight linear pattern, staying in the general direction of the line. Dataset two shows a more quadratic relationship, and is not well captured by a linear model. Dataset 3 generally follows a linear trend but this is skewed by a clear outlier. Finally, Dataset four is a straight line of the datapoints, with one outlier.</p>
+<p>Linear regression would not be an appropriate statistical model to analyze the x-y relationship, because there is not a linear pattern for each one. It would only be appropriate for dataset 3. The four datasets are extremely different from each other; trying to fit them into a linear model would not be appropriate, and running a correlation (all the same 0.81) does not show the proper relationships between x and y variables.</p>
+<p>Taken together, although the summary statistics seemed to indicate that the four datasets were similar, true patterns of the dataset could only be seen with plotting the datasets, showing the importance of data visualization prior to drawing conclusions.</p>
 </section>
 <section id="problem-2-datasaurus-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="problem-2-datasaurus-dataset"><u><strong>Problem 2: Datasaurus Dataset:</strong></u></h2>
@@ -234,8 +234,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">max_y =</span> <span class="fu">max</span>(y), </span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">crrltn =</span> <span class="fu">cor</span>(x, y) ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>There are 13 different shapes, and the mean of all xs for each shape and ys is the same. The range varies between the shapes. The correlation of x and y is -0.06 for each, which is close to 0, meaning there is no linear relationship.</p>
-<p>This is depicted in a table below:</p>
+<p>There are 13 different shapes, and the table shows that the mean of all x and y values across the shapes are the same, at 54.27 and 47.83 respectively. The range varies between the shapes, with no clear pattern. In addition, the correlation between x and y values is r=-0.06 for each. This is close to 0, meaning there is no linear relationship between the two variables.</p>
+<p>These results are depicted in a table below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(result, <span class="at">digits=</span><span class="dv">2</span>, <span class="at">caption=</span><span class="st">"Table 2: Datasaurus Descriptive Statistics"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -388,7 +388,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<p>The results are also plotted below:</p>
+<p>I also used plotting to visualize the results.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen, <span class="fu">aes</span>(<span class="at">x=</span>x,<span class="at">y=</span>y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,<span class="at">formula =</span> <span class="st">"y ~ x"</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>dataset) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -399,6 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p>The graph shows the datapoints of 13 different shapes. Again, despite having the same mean and correlation between x and y, the images are very different. This exercise again underscores the importance of data visualization in drawing conclusions about data, which can be obscured when only considering summary statistics such as the mean or range.</p>
 </section>
 
 </main>
