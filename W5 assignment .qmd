@@ -49,11 +49,11 @@ Next, I plotted the datasets.
   facet_wrap(~dataset) 
 ```
 
-The plots tell us that the four datasets are very different from each other, which was obscured by the summary statistics. The first dataset is pretty scattered although there does seem to be a trend upwards and following a slight linear pattern. Dataset two shows a more quadratic relationship. Dataset 3 generally follows a linear trend but this is skewed by a clear outlier. Finally, dataset four is a straight line of the datapoints, and there is one outlier. The true patterns could only be seen with plotting the datasets.
+The plots tell us that the four datasets are very different from each other, which was obscured by the summary statistics. The first dataset is pretty scattered, although it does seem to be following a slight linear pattern, staying in the general direction of the line. Dataset two shows a more quadratic relationship, and is not well captured by a linear model. Dataset 3 generally follows a linear trend but this is skewed by a clear outlier. Finally, Dataset four is a straight line of the datapoints, with one outlier.
 
-Linear regression would not be an appropriate statistical model to analyze the x-y relationship, because there is not a linear pattern for each one. It would only be appropriate for dataset 3.
+Linear regression would not be an appropriate statistical model to analyze the x-y relationship, because there is not a linear pattern for each one. It would only be appropriate for dataset 3. The four datasets are extremely different from each other; trying to fit them into a linear model would not be appropriate, and running a correlation (all the same 0.81) does not show the proper relationships between x and y variables.
 
-The four datasets are extremely different. Trying to fit them into a linear model would not be appropriate, and running a correlation (all the same 0.81) does not show the proper relationships between x and y variables.
+Taken together, although the summary statistics seemed to indicate that the four datasets were similar, true patterns of the dataset could only be seen with plotting the datasets, showing the importance of data visualization prior to drawing conclusions.
 
 ## [**Problem 2: Datasaurus Dataset:**]{.underline}
 
@@ -76,17 +76,19 @@ result <- datasaurus_dozen %>%
              crrltn = cor(x, y) ) 
 ```
 
-There are 13 different shapes, and the mean of all xs for each shape and ys is the same. The range varies between the shapes. The correlation of x and y is -0.06 for each, which is close to 0, meaning there is no linear relationship.
+There are 13 different shapes, and the table shows that the mean of all x and y values across the shapes are the same, at 54.27 and 47.83 respectively. The range varies between the shapes, with no clear pattern. In addition, the correlation between x and y values is r=-0.06 for each. This is close to 0, meaning there is no linear relationship between the two variables.
 
-This is depicted in a table below:
+These results are depicted in a table below:
 
 ```{r}
 knitr::kable(result, digits=2, caption="Table 2: Datasaurus Descriptive Statistics") 
 ```
 
-The results are also plotted below:
+I also used plotting to visualize the results.
 
 ```{r}
 #| results: hide 
 ggplot(datasaurus_dozen, aes(x=x,y=y)) + geom_point() + geom_smooth(method = "lm",formula = "y ~ x") + facet_wrap(~dataset) 
 ```
+
+The graph shows the datapoints of 13 different shapes. Again, despite having the same mean and correlation between x and y, the images are very different. This exercise again underscores the importance of data visualization in drawing conclusions about data, which can be obscured when only considering summary statistics such as the mean or range.
