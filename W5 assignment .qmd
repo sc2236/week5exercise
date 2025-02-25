@@ -6,7 +6,7 @@ editor: visual
 
 ```{r}
 library(tidyverse) 
-library(ggplot2)
+library(ggplot2) 
 ```
 
 ## [**Problem 1: Anscombe (1973) Dataset:**]{.underline}
@@ -15,7 +15,7 @@ First, I opened up the dataset and explored the dataset.
 
 ```{r}
 #| results: hide 
-anscombe_quartet= readRDS("anscombe_quartet.rds")
+anscombe_quartet <- readRDS("anscombe quartet.rds")
 
 str(anscombe_quartet) 
 
